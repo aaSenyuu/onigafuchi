@@ -1,132 +1,194 @@
-html,
 body {
   margin: 0;
-  font-family: "Arial", sans-serif;
-  font-size: 14px;
-  line-height: 20px;
+  min-width: 960px;
+  font-family: "Montserrat", "Helvetica", "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 32px;
+  color: #f2f2f2;
+  background-color: #080208;
+  background-image: url("img/hero-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: top center;
 }
 
-body {
-  min-width: 430px;
-  border: 2px dashed #c7e4ff;
+.container {
+  max-width: 928px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
 
-html::before,
-body::before,
-header::before,
-footer::before,
-main::before {
-  color: #7fc1ff;
+.page-header {
+  margin: 0 0 180px;
+  padding: 32px 0 32px;
 }
 
-main,
-header,
-footer {
-  background-color: #f3faff;
-  border: 2px solid #7fc1ff;
+.page-header .container,
+.page-footer .container {
+  max-width: 1408px;
+  text-align: right;
 }
 
-nav,
-section,
-article,
-aside {
-  background-color: #f9f7ff;
-  border: 2px solid #9779ec;
+.page-header a {
+  margin-left: 56px;
+  color: #fea18d;
+  text-decoration: none;
+  background-repeat: no-repeat;
+  background-position: left;
 }
 
-nav::before,
-section::before,
-article::before,
-aside::before {
-  color: #9779ec;
+.header-email {
+  padding-left: 30px;
+  background-image: url("img/icon-email.svg");
 }
 
-h1,
-h2,
-h3 {
-  font-size: 18px;
-  background-color: #ffffff;
-  border: 2px solid #ff994f;
+.header-phone {
+  padding-left: 25px;
+  background-image: url("img/icon-phone.svg");
 }
 
-h1::before {
-  content: "h1";
-  color: #ff994f;
+.hero-image {
+  margin-bottom: 480px;
 }
 
-h2::before {
-  content: "h2";
-  color: #ff994f;
+.hero-image .container {
+  max-width: 1408px;
+  text-align: center;
 }
 
-h3::before {
-  content: "h3";
-  color: #ff994f;
+.heading {
+  margin: 0 0 24px;
+  font-size: 80px;
+  line-height: 96px;
 }
 
-p {
-  background-color: #ffffff;
-  border: 2px solid #f36dff;
-}
-
-p::before {
-  color: #f36dff;
-  content: "p";
-}
-
-* {
-  position: relative;
-  padding: 25px 25px 20px;
+.hero-image p {
   margin: 0;
+  font-size: 32px;
+  line-height: 48px;
+}
+
+.intro {
+  margin: 0 0 120px;
+}
+
+.subheading {
+  margin: 0 0 56px;
+  font-size: 56px;
+  line-height: 80px;
+  text-align: center;
+}
+
+.user-image {
+  margin: 0 0 32px;
+  text-align: center;
+}
+
+.intro h3,
+.portfolio h3 {
+  margin: 0 0 12px;
+  font-size: 28px;
+  line-height: 40px;
+  font-weight: 500;
+}
+
+.intro p {
+  margin: 0 0 32px;
+}
+
+.skills-list {
+  margin: 0;
+  padding: 0;
+}
+
+.skills-list dt {
+  padding-left: 32px;
+  background-repeat: no-repeat;
+  background-position: left;
+}
+
+.skill-html {
+  background-image: url("img/icon-html.svg");
+}
+
+.skill-css {
+  background-image: url("img/icon-css.svg");
+}
+
+.level {
+  margin: 4px 0 16px;
+  padding: 0;
+  height: 14px;
+  font-size: 0;
+  background-color: #080208;
+  border: 1px solid #712073;
+  border-radius: 8px;
+}
+
+.level div {
+  margin: 1px;
+  height: 12px;
+  background-color: #fea18d;
+  border-radius: 6px;
+}
+
+.portfolio {
+  margin: 0 0 120px;
+}
+
+.projects {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.projects li {
+  margin: 0 0 80px;
+}
+
+.project-image {
+  margin: 0 0 24px;
+  text-align: center;
+}
+
+.projects p {
+  margin: 0 0 24px;
+}
+
+.button {
+  padding: 6px 20px;
+  display: inline-block;
+  vertical-align: baseline;
+  text-decoration: none;
+  text-transform: uppercase;
   border-radius: 4px;
+  background-color: #712073;
+  color: #ffffff;
 }
 
-*:not(:last-child) {
-  margin-bottom: 20px;
+.page-footer {
+  padding: 40px 0;
+  background-color: #260c26;
 }
 
-*::before {
-  position: absolute;
-  top: 8px;
-  left: 10px;
-  font-weight: 700;
-  font-size: 11px;
-  line-height: 10px;
-  letter-spacing: 0.04em;
+.page-footer a {
+  margin-left: 56px;
+  color: #fea18d;
+  text-decoration: none;
+  background-repeat: no-repeat;
+  background-position: left;
 }
 
-html::before {
-  content: "html";
+.footer-email {
+  padding-left: 30px;
+  background-image: url("img/icon-email.svg");
 }
 
-body::before {
-  content: "body";
+.footer-phone {
+  padding-left: 25px;
+  background-image: url("img/icon-phone.svg");
 }
-
-main::before {
-  content: "main";
-}
-
-header::before {
-  content: "header";
-}
-
-footer::before {
-  content: "footer";
-}
-
-section::before {
-  content: "section";
-}
-
-article::before {
-  content: "article";
-}
-
-aside::before {
-  content: "aside";
-}
-
-nav::before {
-  content: "nav";
+.carousel-control-next-icon {
+background-image: url(img/arrow1.svg) !important;
+  width:250px !important;
+  height:150px;
 }
