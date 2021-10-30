@@ -1,27 +1,60 @@
-
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-<div class="carousel-indicators">
-<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active " aria-current="true" aria-label="Slide 1"></button>
-<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-</div>
-<div class="carousel-inner">
-<div class="carousel-item active">
-<img src="img/mywork2.png" class="d-block w-100" alt="...">
-</div>
-<div class="carousel-item">
-<img src="img/mywork1.png" class="d-block w-100" alt="...">
-</div>
-<div class="carousel-item">
-<img src="img/mywork3.png" class="d-block w-100" alt="...">
-</div>
-</div>
-<button class="carousel-control-prev " type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
-<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-<span class="visually-hidden">Previous</span>
-</button>
-<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="next">
-<span class="carousel-control-next-icon" aria-hidden="true"></span>
-<span class="visually-hidden">Next</span>
-</button>
-</div>
+$(document).ready(function(){
+    /* after the page has finished loading */
+ 
+    $('#contact-form').jqTransform();
+    /* transform the form using the jqtransform plugin */
+ 
+    $("button").click(function(){
+ 
+        $(".formError").hide();
+        /* hide all the error tooltips */
+    });
+ 
+    var use_ajax=true;
+    $.validationEngine.settings={};
+    /* initialize the settings object for the formValidation plugin */
+ 
+    $("#contact-form").validationEngine({   /* create the form validation */
+        inlineValidation: false,
+        promptPosition: "centerRight",
+        success :  function(){use_ajax=true},   /* if everything is OK enable AJAX */
+        failure : function(){use_ajax=false}    /* in case of validation failure disable AJAX */
+     })
+ 
+    $("#contact-form").submit(function(e){
+ 
+            if(!$('#subject').val().length)
+            {
+                $.validationEngine.buildPrompt(".jqTransformSelectWrapper","* This field is required","error")
+                /* a custom validation tooltip, using the buildPrompt method */
+ 
+                return false;
+            }
+ 
+            if(use_ajax)
+            {
+                $('#loading').css('visibility','visible');
+                /* show the rotating gif */
+ 
+                $.post('submit.php',$(this).serialize()+'&ajax=1',
+                /* using jQuery's post method to send data */
+ 
+                function(data){
+                    if(parseInt(data)==-1)
+                        $.validationEngine.buildPrompt("#captcha","* Wrong verification number!","error");
+                        /* if there is an error, build a custom error tooltip for the captcha */
+                    else
+                    {
+                        $("#contact-form").hide('slow').after('<h1>Thank you!</h1>');
+                        /* show the confirmation message */
+                    }
+ 
+                    $('#loading').css('visibility','hidden');
+                    /* hide the rotating gif */
+                });
+            }
+ 
+e.preventDefault(); /* stop the default form submit */
+})
+ 
+});
